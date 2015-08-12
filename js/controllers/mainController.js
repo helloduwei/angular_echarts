@@ -90,7 +90,7 @@ function loadEcharts(){
 		    ]
 	};
 		myChart.setOption(option);
-		myChart.setTheme('');
+		myChart.setTheme('macarons'); //macarons,infographic
 	}
 	);
 }
