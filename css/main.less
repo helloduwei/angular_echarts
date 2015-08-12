@@ -1,0 +1,55 @@
+/*global*/
+html,body{
+	height: 100%;
+}
+body,p,h1,h2,h3,h4,h5,h6{
+	margin: 0;
+	padding: 0;
+}
+div,p,span,a{
+	box-sizing: border-box;
+	word-break: break-all;
+}
+a{
+	text-decoration: none;
+	&:link{
+		color: @deep;
+	}
+	&:visited{
+		color: @deep;
+	}
+	&:hover{
+		color: @deep;
+	}
+	&:active{
+		color: @deep;
+		background-color: @999;
+	}
+}
+ul{
+	list-style: none;
+	-webkit-padding-start: 0;
+	-webkit-margin-before: 0;
+  	-webkit-margin-after: 0;
+
+}
+.clearfix{
+	clear: both;
+}
+
+@deep : #161823;
+@999 : #999;
+//main
+.page{
+	height: 100%;
+}
+.container{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+#main{
+	width: 100%;
+	height: 300px;
+}
+
