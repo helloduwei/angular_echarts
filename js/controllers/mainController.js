@@ -39,7 +39,7 @@ function loadEcharts(){
 		        trigger: 'item',
 		    },
 		    legend: {
-		        data:['上证指数', '随机数据']
+		        data:['上证指数', /*'随机数据'*/]
 		    },
 		    toolbox: {
 		        show : true,
