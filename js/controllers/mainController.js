@@ -34,7 +34,6 @@ function loadEcharts(dataX,dataY){
 	[
 		'echarts',
 		'echarts/chart/k',
-		'echarts/chart/scatter'
 	],
 	function (ec){
 		var myChart = ec.init(document.getElementById('main'));
