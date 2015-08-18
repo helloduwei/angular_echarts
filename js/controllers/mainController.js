@@ -1,29 +1,29 @@
 
 mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routeParams,dataContent) {
-	var dataX,dataY;
-	var ar1 = [];
-	var ar3 = [];
+	var datas = [];
+	var ar_date = [];
+	var ar_k = [];
 	dataContent.getData()
 	.success(function (data){
-		dataX = data.xaxis_data;
-		dataY = data.yaxis_data;
-		loadEcharts();
+		
+		datas = data.Table;
 		//rebuild array from data
-		for(var i = 0;i<dataY.length;i++){
-			ar1.push(dataY[i][0]);
-			var ar2 = [];
-			ar2.push(dataY[i][2],dataY[i][1],dataY[i][3]);
-			ar3.push(ar2);
+		for(var i = 0;i<datas.length;i++){
+			ar_date.push(datas[i].交易日期);
+			var ar_holder = [];
+			ar_holder.push(datas[i].开盘价,datas[i].收盘价,datas[i].最低价,datas[i].最高价);
+			ar_k.push(ar_holder);
 		}
-		console.log(ar1);
-		console.log(ar3);
+		/*console.log(ar_date);
+		console.log(ar_k);*/
+		loadEcharts(ar_date,ar_k);
 
 	})
 	.error(function (err){
 		console.log(err)
 	})
 
-function loadEcharts(){
+function loadEcharts(dataX,dataY){
 	require.config({
 		paths:{
 			echarts:'http://echarts.baidu.com/build/dist'
