@@ -18,7 +18,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 		_code = datas[0].证券代码;
 		for(var i = 0;i<datas.length;i++){
 			ar_date.push(datas[i].交易日期);
-			ar_num.push((datas[i].成交量)/100000000);
+			ar_num.push((datas[i].成交量)/10000);
 			var ar_holder = [];
 			ar_holder.push(parseFloat(datas[i].开盘价),parseFloat(datas[i].收盘价),parseFloat(datas[i].最低价),parseFloat(datas[i].最高价));
 			ar_k.push(ar_holder);
@@ -50,7 +50,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			option = {
 				calculable:false,
 			    title : {
-			        text: title,
+			        text: '证券代码：' + title,
 			        x:'center',
 			        y:'top'
 			        /*subtext: '纯属虚构'*/
@@ -60,7 +60,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    },
 			    legend: {
 			    	show: true,
-			        data:['k线( 开/收/低/高 )', '成交量( /亿 )'],
+			        data:['k线( 开/收/低/高 )', '成交量( /万 )'],
 			        x:'center',
 			        y:35
 			    },
@@ -98,7 +98,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			            type : 'value',
 			            scale: true,
 			            min:0,
-			            max:20,
+			            max:200000,
 			            boundaryGap: [0.05, 0.05] 
 			        }
 			    ],
@@ -108,7 +108,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			            type:'k',
 			            data:data_k
 			        },{
-			            name:'成交量( /亿 )',
+			            name:'成交量( /万 )',
 			            type:'bar',
 			            yAxisIndex:1,
 			            data:data_num
