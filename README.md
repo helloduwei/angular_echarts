@@ -21,3 +21,10 @@ loading notes
 <br>
 some css
 <br>
+8-20 15:58
+<br>
+controller: change to two charts, two options, connect them
+<br>
+html: two div
+<br>
+css: style for two elements

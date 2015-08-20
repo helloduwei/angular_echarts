@@ -45,10 +45,11 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			'echarts/chart/k',
 		],
 		function (ec){
-			var myChart = ec.init(document.getElementById('main'));
+			var myChart_k = ec.init(document.getElementById('main_k'));
+			var myChart_bar = ec.init(document.getElementById('main_bar'));
 			
-			option = {
-				calculable:false,
+			option_k = {
+				calculable:true,
 			    title : {
 			        text: '证券代码：' + title,
 			        x:'center',
@@ -60,9 +61,15 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    },
 			    legend: {
 			    	show: true,
-			        data:['k线( 开/收/低/高 )', '成交量( /万 )'],
+			        data:['k线( 开/收/低/高 )'],
 			        x:'center',
 			        y:35
+			    },
+			    dataZoom : {
+			        show : false,
+			        realtime: true,
+			        start : 50,
+			        end : 100
 			    },
 			    toolbox: {
 			        show : false,
@@ -72,6 +79,40 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			            restore : {show: true},
 			            saveAsImage : {show: true}
 			        }
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            boundaryGap : true,
+			            data : dataX
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            scale:true,
+			            boundaryGap: [0.05, 0.05]
+			        }
+			    ],
+			    series : [
+			        {
+			            name:'k线( 开/收/低/高 )',
+			            type:'k',
+			            data:data_k
+			        }
+			    ]
+		};
+		option_bar = {
+				calculable:true,
+			    
+			    tooltip : {
+			        trigger: 'item',
+			    },
+			    legend: {
+			    	show: true,
+			        data:[ '成交量( /万 )'],
+			        x:'center',
+			        y:35
 			    },
 			    dataZoom : {
 			        show : true,
@@ -87,13 +128,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			        }
 			    ],
 			    yAxis : [
-			        {
-			            type : 'value',
-			            scale:true,
-			            min:4,
-			            splitNumber: 5,
-			            boundaryGap: [0.05, 0.05]
-			        },
+			        
 			        {
 			            type : 'value',
 			            scale: true,
@@ -104,19 +139,18 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    ],
 			    series : [
 			        {
-			            name:'k线( 开/收/低/高 )',
-			            type:'k',
-			            data:data_k
-			        },{
 			            name:'成交量( /万 )',
 			            type:'bar',
-			            yAxisIndex:1,
 			            data:data_num
 			        }
 			    ]
-		};
-			myChart.setOption(option);
-			myChart.setTheme('macarons'); //macarons,infographic
+		}
+			myChart_k.setOption(option_k);
+			myChart_bar.setOption(option_bar);
+			myChart_k.connect([myChart_bar]);
+			myChart_bar.connect([myChart_k]);
+			myChart_k.setTheme('macarons'); //macarons,infographic
+			myChart_bar.setTheme('infographic');
 		}
 		);
 	}
