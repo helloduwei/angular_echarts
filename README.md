@@ -28,3 +28,10 @@ controller: change to two charts, two options, connect them
 html: two div
 <br>
 css: style for two elements
+<br>
+8-18 16:30
+<br>
+css
+<br>
+tooltip style
+<br>
