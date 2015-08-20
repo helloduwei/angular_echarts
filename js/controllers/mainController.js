@@ -133,8 +133,6 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			        {
 			            type : 'value',
 			            scale: true,
-			            min:0,
-			            max:200000,
 			            boundaryGap: [0.05, 0.05] 
 			        }
 			    ],
