@@ -58,7 +58,13 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			        /*subtext: '纯属虚构'*/
 			    },
 			    tooltip : {
-			        trigger: 'item',
+			        trigger: 'axis',
+			        axisPointer:{
+				    	lineStyle: {
+				    		color:'#1e90ff',
+				    		type:'solid'
+				    	}
+			    	}
 			    },
 			    legend: {
 			    	show: true,
@@ -108,6 +114,15 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    animation: true,
 			    tooltip : {
 			        trigger: 'item',
+			    },
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer:{
+				    	lineStyle: {
+				    		color:'#1e90ff',
+				    		type:'solid'
+				    	}
+			    	}
 			    },
 			    legend: {
 			    	show: true,
