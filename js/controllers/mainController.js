@@ -34,7 +34,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 	function loadEcharts(title,dataX,data_k,data_num){
 		require.config({
 			paths:{
-				echarts:'http://echarts.baidu.com/build/dist'
+				echarts:'js/frames/echarts'
 			}
 		});
 
@@ -50,6 +50,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			
 			option_k = {
 				calculable:true,
+				animation: true,
 			    title : {
 			        text: '证券代码：' + title,
 			        x:'center',
@@ -104,7 +105,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 		};
 		option_bar = {
 				calculable:true,
-			    
+			    animation: true,
 			    tooltip : {
 			        trigger: 'item',
 			    },
