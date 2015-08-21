@@ -54,7 +54,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    title : {
 			        text: '证券代码：' + title,
 			        x:'center',
-			        y:'top'
+			        y:20
 			        /*subtext: '纯属虚构'*/
 			    },
 			    tooltip : {
@@ -67,10 +67,10 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    	}
 			    },
 			    legend: {
-			    	show: true,
+			    	show: false,
 			        data:['k线( 开/收/低/高 )'],
 			        x:'center',
-			        y:35
+			        y:0
 			    },
 			    dataZoom : {
 			        show : false,
@@ -89,6 +89,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    },
 			    xAxis : [
 			        {
+			        	show : false,
 			            type : 'category',
 			            boundaryGap : true,
 			            data : dataX
@@ -98,7 +99,12 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			        {
 			            type : 'value',
 			            scale:true,
-			            boundaryGap: [0.05, 0.05]
+			            boundaryGap: [0.05,0.05],
+			            axisLabel : {
+			            	show: true,
+			            	formatter: '{value}.00'
+			            }
+
 			        }
 			    ],
 			    series : [
@@ -125,7 +131,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    	}
 			    },
 			    legend: {
-			    	show: true,
+			    	show: false,
 			        data:[ '成交量( /万 )'],
 			        x:'center',
 			        y:35
