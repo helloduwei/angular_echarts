@@ -49,7 +49,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			var myChart_bar = ec.init(document.getElementById('main_bar'));
 			
 			option_k = {
-				calculable:true,
+				calculable:false,
 				animation: true,
 			    title : {
 			        text: '证券代码：' + title,
@@ -110,7 +110,7 @@ mainApp.controller('main', function ($scope,$rootScope,$route,$window,$routePara
 			    ]
 		};
 		option_bar = {
-				calculable:true,
+				calculable:false,
 			    animation: true,
 			    tooltip : {
 			        trigger: 'item',
